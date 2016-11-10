@@ -2,7 +2,7 @@ package edu.wit.comp2000.group23.lists.Utils;
 
 import edu.wit.comp2000.group23.lists.Enums.SUIT;
 
-public class Card implements Comparable{
+public class Card implements Comparable<Card>{
 	private int value;
 	private SUIT suit;
 
@@ -93,9 +93,7 @@ public class Card implements Comparable{
 	 * Returns negative if this card is less than ref card
 	 */
 	@Override
-	public int compareTo(Object o) {
-		Card c = (Card)o;
-		
+	public int compareTo(Card c) {		
 		return this.value - c.value;
 	}
 }
