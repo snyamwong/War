@@ -44,6 +44,8 @@ public class Deck {
 	 * Shuffles the Deck of Cards
 	 */
 	public void shuffle() {
+		Collections.shuffle(this.cards);
+		
 		/*Card[] deck = (Card[]) this.cards.toArray();
 		
 		//Efficient Fisher-Yates shuffle
@@ -59,8 +61,6 @@ public class Deck {
 	        deck[index] = deck[i];
 	        deck[i] = temp;
 	    }*/
-	    
-	    Collections.shuffle(this.cards);
 	    
 		//Clear the existing deck of cards and add back in shuffled order
 		/*this.cards.clear();
