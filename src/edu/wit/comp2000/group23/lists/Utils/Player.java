@@ -42,6 +42,8 @@ public class Player{
 	 * @return Card 
 	 */
 	public Card drawsCard(){
+		//Card card = this.hand.pop();
+		//this.currentCard = card;
 		//return this.hand.pop();
 		return null;
 	}
