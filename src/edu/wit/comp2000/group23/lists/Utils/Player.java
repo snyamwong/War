@@ -31,6 +31,14 @@ public class Player {
 	}
 
 	/**
+	 * add to the player's hand
+	 * @param c
+	 */
+	public void addToHand(Card c){
+		this.hand.add(c);
+	}
+	
+	/**
 	 * getter method for player's id
 	 * 
 	 * @return
