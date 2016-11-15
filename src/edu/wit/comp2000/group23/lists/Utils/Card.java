@@ -2,7 +2,7 @@ package edu.wit.comp2000.group23.lists.Utils;
 
 import edu.wit.comp2000.group23.lists.Enums.SUIT;
 
-public class Card {
+public class Card{
 	private int value;
 	private SUIT suit;
 
