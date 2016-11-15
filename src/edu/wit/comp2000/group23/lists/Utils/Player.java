@@ -18,7 +18,7 @@ public class Player {
 	 */
 	public Player(int playerID, Hand hand) {
 		this.playerID = playerID;
-		this.hand = hand;
+		this.hand = hand; 
 	}
 
 	/**

@@ -34,7 +34,7 @@ public class Pile{
 		for(Card c : this.cards){
 			cardPile += c + " ";
 		}
-		return cardPile + " " + id;
+		return cardPile + "Pile ID: " + id;
 	}
 	
 	/**
@@ -60,5 +60,18 @@ public class Pile{
 	 */
 	public int getLength(){
 		return this.cards.size();
+	}
+	
+	/**
+	 * isEmpty method for private data field
+	 * @return
+	 */
+	public boolean isEmpty(){
+		if(this.cards.isEmpty()){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
