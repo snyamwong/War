@@ -94,6 +94,14 @@ public class Deck {
 	}
 	
 	/**
+	 * 
+	 * @return
+	 */
+	public boolean isEmpty(){
+		return this.cards.isEmpty();
+	}
+	
+	/**
 	 * Returns compact, formatted String representation of the deck
 	 */
 	@Override
