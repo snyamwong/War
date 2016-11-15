@@ -7,7 +7,7 @@ import java.util.Collections;
 import edu.wit.comp2000.group23.lists.Enums.SUIT;
 import edu.wit.comp2000.group23.lists.Exceptions.EmptyDeckException;
 
-public class Deck {
+public class Deck extends Pile{
 	private ArrayList<Card> cards;
 	private int id;
 	private int top;
@@ -91,6 +91,14 @@ public class Deck {
 	 */
 	public int getID() {
 		return this.id;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isEmpty(){
+		return this.cards.isEmpty();
 	}
 	
 	/**
