@@ -52,4 +52,3 @@ public class Hand {
         return hand.size();
 }
 }
-
