@@ -2,7 +2,7 @@ package edu.wit.comp2000.group23.lists.Utils;
 
 import java.util.ArrayList;
 
-public class Hand {
+public class Hand extends Pile{
 	
 	private ArrayList<Card> hand;   // The cards in the hand.
 	private int id;
