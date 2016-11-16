@@ -16,9 +16,10 @@ public class Player {
 	 * @param playerID
 	 * @param hand
 	 */
-	public Player(int playerID, Hand hand) {
+	public Player(int playerID, Hand hand, Pile pile) {
 		this.playerID = playerID;
-		this.hand = hand; 
+		this.hand = hand;
+		this.pile = pile;
 	}
 
 	/**
@@ -32,12 +33,13 @@ public class Player {
 
 	/**
 	 * add to the player's hand
+	 * 
 	 * @param c
 	 */
-	public void addToHand(Card c){
+	public void addToHand(Card c) {
 		this.hand.add(c);
 	}
-	
+
 	/**
 	 * getter method for player's id
 	 * 
@@ -48,43 +50,70 @@ public class Player {
 	}
 
 	/**
-	 * Player draws a card from Hand 
-	 * Hand is a list so change (!!)
-	 * 
-	 * if(!hand.hasNext()){
-	 * for(int i = 0; i < Pile.getLength(); i++){
-	 * 	
-	 * }
-	 * }
-	 * else{
-	 * return hand.next();
-	 * }
+	 * getter method for current card
+	 * @return
+	 */
+	public Card getCurrentCard(){
+		return this.currentCard;
+	}
+	
+	/**
+	 * mutator method for current card 
+	 */
+	public void setCurrentCard(Card c){
+		this.currentCard = c;
+	}
+	
+	/**
+	 * draws card once
+	 * if hand is empty automatically addPileToHand
 	 * 
 	 * @return Card
 	 */
-	public Card drawsCard() {
-		return null;
+
+	public void drawsCard() {
+		//when the player's hand isn't empty
+		if (!this.hand.isEmpty()) {
+			this.setCurrentCard(this.hand.remove(hand.getLength() - 1));
+		}
+		//when the player's hand is empty
+		else{
+			this.addPileToHand();
+			this.setCurrentCard(this.hand.remove(hand.getLength() - 1));
+		}
 	}
 
 	/**
-	 * Draws card three or less times during war pseudo-code:
-	 * 
-	 * for(int i = 0; i < 3; i++){ 
-	 * if(!hand.hasNext())
-	 * { this.pile.shuffle();
-	 * 	for(Card c : this.pile){
-	 * 
-	 * }
-	 * else
-	 * { 
-	 * Card c = hand.next 
-	 * } 
-	 * }
+	 * Draws card three or less times during war 
 	 * 
 	 * @return
 	 */
-	public Card drawsWarCard() {
-		return null;
+	public void drawsWarCard() {
+		int position = hand.getLength() - 1;
+
+		if (hand.getLength() >= 3) {
+			for (int i = hand.getLength() - 1; i >= hand.getLength() - 3; i--) {
+				this.currentCard = this.hand.remove(i);
+			}
+		}
+		else{
+			while(hand.getLength() != 0){
+				this.currentCard =  this.hand.remove(position);
+				position--;
+			}
+		}
+		
+	}
+
+	/**
+	 * add pile to hand, also shuffles pile
+	 */
+	public void addPileToHand() {
+		this.pile.shuffle();
+		
+		for (int i = 0; i < this.pile.getLength(); i++) {
+			this.hand.add(this.pile.remove(i));
+		}
 	}
 
 	/**
