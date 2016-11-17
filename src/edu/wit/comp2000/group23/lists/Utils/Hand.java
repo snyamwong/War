@@ -5,12 +5,20 @@ import java.util.ArrayList;
 public class Hand extends Pile{
 	
 	private ArrayList<Card> hand;   // The cards in the hand.
-
+	private int id;
+	private ArrayList<Card> cards;
+	private static int idNext = 0;
     /**
      * Creates empty hand.
      */
-    public Hand() {
-        hand = new ArrayList<Card>();
+	public void Pile(){
+		this.cards = new ArrayList<Card>();
+		this.id = idNext;
+		idNext++;
+	}
+
+	public Hand() {
+        hand = new ArrayList<Card>();	
     }
 
     /**
@@ -30,7 +38,13 @@ public class Hand extends Pile{
         hand.add(c);
     }
    
-
+    public String toString(){
+		String cardPile = "";
+		for(Card c : this.cards){
+			cardPile += c + " ";
+		}
+		return cardPile + "Hand ID: " + id;
+	}
     /**
      * Returns the number of cards in the hand.
      */
