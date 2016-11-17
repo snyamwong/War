@@ -74,4 +74,8 @@ public class Pile{
 			return false;
 		}
 	}
+	
+	public void clear(){
+		this.cards.clear();
+	}
 }
