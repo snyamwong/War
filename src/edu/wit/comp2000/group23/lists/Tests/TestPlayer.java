@@ -31,12 +31,7 @@ public class TestPlayer {
 		String actual = player.getCurrentCard().toString();
 		Assert.assertEquals(expected, actual);
 	}
-	
-	@Test
-	public void testShuffle(){
-		
-	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testPutCardInPile(){
@@ -47,4 +42,55 @@ public class TestPlayer {
 		boolean playerEmptyHand = player.getHand().isEmpty();
 		Assert.assertEquals(true, playerEmptyHand);
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void drawsCardEmptyHandTest(){
+		Player player = new Player(0, new Hand(), new Pile());
+		Card c1 = new Card(1, SUIT.Clubs);
+		player.setCurrentCard(c1);
+		player.putCardInPile();
+		player.drawsCard();
+		String expected = c1.toString();
+		String actual = player.getCurrentCard().toString();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void drawsWarCardTest(){
+		Player player = new Player(0, new Hand(), new Pile());
+		Card c1 = new Card(1, SUIT.Clubs);
+		Card c2 = new Card(2, SUIT.Clubs);
+		Card c3 = new Card(3, SUIT.Clubs);
+		Card c4 = new Card(3, SUIT.Clubs);
+		player.addToHand(c4);
+		player.addToHand(c3);
+		player.addToHand(c2);
+		player.addToHand(c1);
+		player.drawsWarCard();
+		String expected = c4.toString();
+		String actual = player.getCurrentCard().toString();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void drawsWarCardEmptyHandTest(){
+		Player player = new Player(0, new Hand(), new Pile());
+		Card c1 = new Card(1, SUIT.Clubs);
+		Card c2 = new Card(2, SUIT.Clubs);
+		Card c3 = new Card(3, SUIT.Clubs);
+		Card c4 = new Card(3, SUIT.Clubs);
+		player.setCurrentCard(c4);
+		player.putCardInPile();
+		player.setCurrentCard(c3);
+		player.putCardInPile();
+		player.setCurrentCard(c2);
+		player.putCardInPile();
+		player.setCurrentCard(c1);
+		player.putCardInPile();
+		player.drawsWarCard();
+		Assert.assertEquals(true, player.getHand().isEmpty());
+	}
+
 }
