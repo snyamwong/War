@@ -120,4 +120,24 @@ public class TestPlayer {
 		Assert.assertEquals(2, player.getHand().getLength());
 	}
 	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testSpoils(){
+		Player player = new Player(0, new Hand(), new Pile());
+		Card c1 = new Card(1, SUIT.Clubs);
+		Card c2 = new Card(2, SUIT.Clubs);
+		Card c3 = new Card(3, SUIT.Clubs);
+		Card c4 = new Card(4, SUIT.Clubs);
+		Card c5 = new Card(5, SUIT.Clubs);
+		Card c6 = new Card(5, SUIT.Clubs);
+		
+		player.addToHand(c6);
+		player.addToHand(c5);
+		player.addToHand(c4);
+		player.addToHand(c3);
+		player.addToHand(c2);
+		player.addToHand(c1);
+		player.drawsWarCard();
+		Assert.assertEquals(4, player.getSpoils().getLength());
+	}
 }
