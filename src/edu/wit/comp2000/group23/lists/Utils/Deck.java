@@ -11,7 +11,6 @@ public class Deck extends Pile{
 	private ArrayList<Card> cards;
 	private int id;
 	private int top;
-	private boolean empty;
 
 	private static int idNext = 0;
 
@@ -24,7 +23,7 @@ public class Deck extends Pile{
 		this.top = 0;
 		Deck.idNext++;
 
-		generateDeck();
+		this.generateDeck();
 	}
 
 	/**
@@ -76,7 +75,7 @@ public class Deck extends Pile{
 	 * @throws EmptyDeckException
 	 */
 	public Card deal() throws EmptyDeckException {
-		if (!empty) {
+		if (!this.isEmpty()) {
 			this.top++;
 			return this.cards.remove(this.top - 1);
 		} else {
