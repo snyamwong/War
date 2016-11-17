@@ -11,5 +11,7 @@ public class UIController {
 	public void Test(){
 		System.out.println("Works.");
 		test.setText("Works.");
+		
+		
 	}
 }

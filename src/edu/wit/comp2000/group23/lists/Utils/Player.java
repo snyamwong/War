@@ -51,58 +51,63 @@ public class Player {
 
 	/**
 	 * getter method for current card
+	 * 
 	 * @return
 	 */
-	public Card getCurrentCard(){
+	public Card getCurrentCard() {
 		return this.currentCard;
 	}
-	
+
 	/**
-	 * mutator method for current card 
+	 * mutator method for current card
 	 */
-	public void setCurrentCard(Card c){
+	public void setCurrentCard(Card c) {
 		this.currentCard = c;
 	}
-	
+
 	/**
-	 * draws card once
-	 * if hand is empty automatically addPileToHand
+	 * draws card once if hand is empty automatically addPileToHand
 	 * 
 	 * @return Card
 	 */
 
 	public void drawsCard() {
-		//when the player's hand isn't empty
+		// when the player's hand isn't empty
 		if (!this.hand.isEmpty()) {
 			this.setCurrentCard(this.hand.remove(hand.getLength() - 1));
 		}
-		//when the player's hand is empty
-		else{
+		// when the player's hand is empty
+		else {
 			this.addPileToHand();
 			this.setCurrentCard(this.hand.remove(hand.getLength() - 1));
 		}
 	}
 
 	/**
-	 * Draws card three or less times during war 
+	 * Draws card three or less times during war
 	 * 
 	 * @return
 	 */
 	public void drawsWarCard() {
 		int position = hand.getLength() - 1;
-
-		if (hand.getLength() >= 3) {
-			for (int i = hand.getLength() - 1; i >= hand.getLength() - 3; i--) {
-				this.currentCard = this.hand.remove(i);
-			}
-		}
-		else{
-			while(hand.getLength() != 0){
-				this.currentCard =  this.hand.remove(position);
+		int counter = 0;
+		if (hand.getLength() != 0) {
+			while ((hand.getLength()) != 0 && (counter != 4)) {
+				this.currentCard = this.hand.remove(position);
 				position--;
+				counter++;
+			}
+		} else {
+			addPileToHand();
+			position = hand.getLength() - 1;
+			while ((hand.getLength() != 0) && (counter != 4)) {
+				System.out.println("counter" + counter);
+				System.out.println("hand length" + hand.getLength());
+				this.currentCard = this.hand.remove(position);
+				position--;
+				counter++;
 			}
 		}
-		
 	}
 
 	/**
@@ -110,7 +115,7 @@ public class Player {
 	 */
 	public void addPileToHand() {
 		this.pile.shuffle();
-		
+
 		for (int i = 0; i < this.pile.getLength(); i++) {
 			this.hand.add(this.pile.remove(i));
 		}
@@ -130,6 +135,8 @@ public class Player {
 	 * toString method returns String
 	 */
 	public String toString() {
-		return "Player's playerID: " + this.getplayerID() + "\nPlayer's hand: " + this.getHand();
+		return "Player's playerID: " + this.getplayerID() + 
+				"\nPlayer's hand: " + this.getHand() +
+				"\nPlayer's current card: " + this.getCurrentCard();
 	}
 }

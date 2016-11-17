@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -8,5 +9,15 @@
 <AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wit.comp2000.group23.lists.UI.UIController">
    <children>
       <Button fx:id="test" layoutX="14.0" layoutY="259.0" mnemonicParsing="false" onAction="#Test" text="Test" />
+      <ImageView fitHeight="150.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../cards/2_of_clubs.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="120.0" layoutX="382.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../cards/2_of_clubs.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
