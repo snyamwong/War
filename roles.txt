@@ -1,5 +1,5 @@
 Andrew: Card, Deck, Suit, Unit Testing
-Tin: Player
+Tin: Player, Pile
 Jeff: Table
 Kristian: Hand
 Chris: Game
