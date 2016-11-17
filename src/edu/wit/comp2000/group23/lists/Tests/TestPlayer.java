@@ -16,7 +16,7 @@ public class TestPlayer {
 	 * to do later (hand needs to be implemented)
 	 */
 	public void testPlayer(){
-		Player player = new Player(0, new Hand(), new Pile());
+		Player player = new Player(0);
 		Card c1 = new Card(1, SUIT.Clubs);
 		player.addToHand(c1);
 		player.setCurrentCard(c1);
