@@ -24,7 +24,7 @@ public class Deck extends Pile{
 		this.top = 0;
 		Deck.idNext++;
 
-		generateDeck(this.cards);
+		generateDeck();
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class Deck extends Pile{
 	 * 
 	 * @param cards
 	 */
-	private void generateDeck(ArrayList<Card> cards) {
+	private void generateDeck() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 1; j < 14; j++) {
 				this.cards.add(new Card(j, SUIT.ordinalOf(i)));
