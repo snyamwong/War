@@ -13,7 +13,6 @@ public class Table {
 	private Card player4;
 	private int numberOfPlayers;
 	private Pile spoils;
-	private int spoilsWinner;
 	
 	public Table(){
 		
@@ -30,7 +29,19 @@ public class Table {
 		
 	}
 	
-	//Returns true if a winner is determined returns false if a war is required
+	public void playCard(Card c, int playerID){
+		if(playerID==1){
+			player1=c;
+		} else if(playerID==2){
+			player2=c;
+		} else if(playerID==3){
+			player3=c;
+		} else if(playerID==4){
+			player4=c;
+		}
+	}
+	
+	//Returns int for winning player if a winner is determined returns 0 if a war is required
 	
 	public int takeTurn(int numOfPlayers){
 		if(numOfPlayers==2){
@@ -49,7 +60,7 @@ public class Table {
 				//A war:
 				
 			 else if(player1.compareTo(player2)==0){
-				return 0;
+				return takeTurn(2);
 			}
 		} else if(numOfPlayers==4){
 			
@@ -76,6 +87,7 @@ public class Table {
 			else if((player4.compareTo(player1)>0) && (player4.compareTo(player2)>0) && (player4.compareTo(player3)>0)){
 				return 4;
 			}
+				
 		}
 		return 0;
 	}
