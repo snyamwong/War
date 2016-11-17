@@ -101,6 +101,8 @@ public class Player {
 			addPileToHand();
 			position = hand.getLength() - 1;
 			while ((hand.getLength() != 0) && (counter != 4)) {
+				System.out.println("counter" + counter);
+				System.out.println("hand length" + hand.getLength());
 				this.currentCard = this.hand.remove(position);
 				position--;
 				counter++;
