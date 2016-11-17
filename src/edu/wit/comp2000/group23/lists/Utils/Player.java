@@ -133,6 +133,8 @@ public class Player {
 	 * toString method returns String
 	 */
 	public String toString() {
-		return "Player's playerID: " + this.getplayerID() + "\nPlayer's hand: " + this.getHand();
+		return "Player's playerID: " + this.getplayerID() + 
+				"\nPlayer's hand: " + this.getHand() +
+				"\nPlayer's current card: " + this.getCurrentCard();
 	}
 }

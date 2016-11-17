@@ -10,13 +10,19 @@ import edu.wit.comp2000.group23.lists.Utils.Player;
 import junit.framework.Assert;
 
 public class TestPlayer {
+	@SuppressWarnings("deprecation")
 	@Test
 	/**
 	 * to do later (hand needs to be implemented)
 	 */
 	public void testPlayer(){
 		Player player = new Player(0, new Hand(), new Pile());
-		String expected = "Player's playerID: 0 \nPlayer's hand: ";
+		Card c1 = new Card(1, SUIT.Clubs);
+		player.addToHand(c1);
+		player.setCurrentCard(c1);
+		String expected = "Player's playerID: 0"
+				+ "\nPlayer's hand: Ace of Clubs "
+				+ "\nPlayer's current card: Ace of Clubs";
 		Assert.assertEquals(expected, player.toString());
 	}
 	
