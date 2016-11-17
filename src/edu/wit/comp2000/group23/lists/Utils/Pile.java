@@ -74,4 +74,11 @@ public class Pile{
 			return false;
 		}
 	}
+	
+	/**
+	 * clear method for Pile's list
+	 */
+	public void clear(){
+		this.cards.clear();
+	}
 }
