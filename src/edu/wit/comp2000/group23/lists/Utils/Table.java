@@ -30,75 +30,54 @@ public class Table {
 		
 	}
 	
-	public void takeTurn(int numOfPlayers){
+	//Returns true if a winner is determined returns false if a war is required
+	
+	public int takeTurn(int numOfPlayers){
 		if(numOfPlayers==2){
 			
 			//Player2 wins
 			
 			if(player1.compareTo(player2)<0){
-				spoilsWinner=2;
-				spoils.add(player1);
-				spoils.add(player2);
+				return 2;
 			}
 			
 			//Player1 wins
 			
 			else if(player1.compareTo(player2)>0){
-				spoilsWinner=1;
-				spoils.add(player1);
-				spoils.add(player2);
+				return 1;
 			}	
 				//A war:
 				
 			 else if(player1.compareTo(player2)==0){
-				//add three cards to spoils
-				spoils.add(player1);
-				spoils.add(player2);
-				takeTurn(2);
+				return 0;
 			}
 		} else if(numOfPlayers==4){
 			
 			//Player1 wins
 			
 			if((player1.compareTo(player2)>0) && (player1.compareTo(player3)>0) && (player1.compareTo(player3)>0) && player1.compareTo(player4)>0){
-				spoils.add(player1);
-				spoils.add(player2);
-				spoils.add(player3);
-				spoils.add(player4);
-				spoilsWinner=1;
+				return 1;
 			}
 			
 			//Player2 wins
 			
 			else if((player2.compareTo(player1)>0) && (player2.compareTo(player3)>0) && (player2.compareTo(player4)>0)){
-				spoils.add(player1);
-				spoils.add(player2);
-				spoils.add(player3);
-				spoils.add(player4);
-				spoilsWinner=2;
+				return 2;
 			}
 			
 			//Player3 wins
 			
 			else if((player3.compareTo(player1)>0) && (player3.compareTo(player2)>0) && (player3.compareTo(player4)>0)){
-				spoils.add(player1);
-				spoils.add(player2);
-				spoils.add(player3);
-				spoils.add(player4);
-				spoilsWinner=3;
+				return 3;
 			}
 			
 			//Player4 wins
 			
 			else if((player4.compareTo(player1)>0) && (player4.compareTo(player2)>0) && (player4.compareTo(player3)>0)){
-				spoils.add(player1);
-				spoils.add(player2);
-				spoils.add(player3);
-				spoils.add(player4);
-				spoilsWinner=4;
+				return 4;
 			}
 		}
-		
+		return 0;
 	}
 	
 }
