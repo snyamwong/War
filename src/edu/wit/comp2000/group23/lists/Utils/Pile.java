@@ -75,6 +75,9 @@ public class Pile{
 		}
 	}
 	
+	/**
+	 * clear method for Pile's list
+	 */
 	public void clear(){
 		this.cards.clear();
 	}
