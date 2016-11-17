@@ -15,7 +15,7 @@ public class Pile{
 	public Pile(){
 		this.cards = new ArrayList<Card>();
 		this.id = idNext;
-		idNext++;
+		Pile.idNext++;
 	}
 	
 	/**
