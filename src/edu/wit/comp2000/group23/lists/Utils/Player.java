@@ -8,6 +8,7 @@ public class Player {
 	private int playerID;
 	private Hand hand;
 	private Pile pile;
+	private Pile spoils;
 	private Card currentCard;
 
 	/**
@@ -20,6 +21,7 @@ public class Player {
 		this.playerID = playerID;
 		this.hand = hand;
 		this.pile = pile;
+		this.spoils = new Pile();
 	}
 
 	/**
@@ -59,12 +61,21 @@ public class Player {
 	}
 
 	/**
+	 * getter method for the player's spoils during war
+	 * 
+	 * @return
+	 */
+	public Pile getSpoils() {
+		return this.spoils;
+	}
+	
+	/**
 	 * mutator method for current card
 	 */
 	public void setCurrentCard(Card c) {
 		this.currentCard = c;
 	}
-
+	
 	/**
 	 * draws card once if hand is empty automatically addPileToHand
 	 * 
@@ -91,19 +102,26 @@ public class Player {
 	public void drawsWarCard() {
 		int position = hand.getLength() - 1;
 		int counter = 0;
+		//if the player's hand isn't empty
 		if (hand.getLength() != 0) {
+			spoils.clear();
 			while ((hand.getLength()) != 0 && (counter != 4)) {
-				this.currentCard = this.hand.remove(position);
+				Card c = this.hand.remove(position);
+				this.spoils.add(c);
+				this.setCurrentCard(c);
 				position--;
 				counter++;
 			}
-		} else {
+		}
+		//if the player's hand is empty
+		else {
 			addPileToHand();
 			position = hand.getLength() - 1;
+			spoils.clear();
 			while ((hand.getLength() != 0) && (counter != 4)) {
-				System.out.println("counter" + counter);
-				System.out.println("hand length" + hand.getLength());
-				this.currentCard = this.hand.remove(position);
+				Card c = this.hand.remove(position);
+				this.spoils.add(c);
+				this.setCurrentCard(c);
 				position--;
 				counter++;
 			}
