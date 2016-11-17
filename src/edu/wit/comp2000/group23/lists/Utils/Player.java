@@ -25,6 +25,17 @@ public class Player {
 	}
 
 	/**
+	 * single arg constructor for Player
+	 * @param playerID
+	 */
+	public Player(int playerID){
+		this.playerID = playerID;
+		this.hand = new Hand();
+		this.pile = new Pile();
+		this.spoils = new Pile();
+	}
+	
+	/**
 	 * getter method for player's hand
 	 * 
 	 * @return
@@ -100,13 +111,18 @@ public class Player {
 	 * @return
 	 */
 	public void drawsWarCard() {
+		//position for remove is hand.getLength() - 1 because you want
+		//the top card
 		int position = hand.getLength() - 1;
 		int counter = 0;
 		//if the player's hand isn't empty
 		if (hand.getLength() != 0) {
+			//clear the spoils' list every time this is called
 			spoils.clear();
 			while ((hand.getLength()) != 0 && (counter != 4)) {
+				//remove card
 				Card c = this.hand.remove(position);
+				//add the card to spoils and setCurrentCard
 				this.spoils.add(c);
 				this.setCurrentCard(c);
 				position--;
@@ -132,6 +148,7 @@ public class Player {
 	 * add pile to hand, also shuffles pile
 	 */
 	public void addPileToHand() {
+		//shuffle the deck before adding pile to hand
 		this.pile.shuffle();
 
 		for (int i = 0; i < this.pile.getLength(); i++) {

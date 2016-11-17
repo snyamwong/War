@@ -26,7 +26,7 @@ public class TestPile {
 		Card c2 = new Card(2, SUIT.Clubs);
 		pile.add(c1);
 		pile.add(c2);
-		String expected = "Ace of Clubs 2 of Clubs Pile ID: 1";
+		String expected = "Ace of Clubs 2 of Clubs Pile ID: 2";
 		Assert.assertEquals(expected, pile.toString());
 	}
 	
@@ -60,5 +60,16 @@ public class TestPile {
 		String expected = pile.toString();
 		pile.shuffle();
 		Assert.assertNotSame(expected, pile.toString());
+	}
+	
+	@Test
+	public void testClear(){
+		Pile pile = new Pile();
+		Card c1 = new Card(1, SUIT.Clubs);
+		Card c2 = new Card(2, SUIT.Clubs);
+		pile.add(c1);
+		pile.add(c2);
+		pile.clear();
+		Assert.assertEquals(true, pile.isEmpty());
 	}
 }
